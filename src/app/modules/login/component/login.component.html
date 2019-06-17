@@ -12,9 +12,13 @@
                   type="email"
                   name="email"
                   class="form-control"
+                  [class.invalid-border]="form.email.invalid && submitted"
                   placeholder="Enter email"
                   formControlName="email"
                 />
+                <div class="showError" *ngIf="form.email.invalid && submitted">
+                  <span class="has-error" *ngIf="form.email.errors?.required">Enter email Address</span>
+                </div>
               </div>
               <div class="form-group">
                 <label for="">Password</label>
@@ -22,14 +26,13 @@
                   type="password"
                   name="password"
                   class="form-control"
+                  [class.invalid-border]="form.password.invalid && submitted"
                   placeholder="Enter Password"
                   formControlName="password"
                 />
-              </div>
-              <div class="form-group">
-                <p class="text-center">
-                  By signing up you accept our <a href="javascript:;">Terms Of Use</a>
-                </p>
+                <div class="showError" *ngIf="form.password.invalid && submitted">
+                    <span class="has-error" *ngIf="form.password.errors?.required">Enter Password</span>
+                  </div>
               </div>
               <div class="col-md-12 text-center ">
                 <button

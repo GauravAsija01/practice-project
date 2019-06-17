@@ -27,7 +27,6 @@ export class RegistrationComponent implements OnInit {
   emailid = '';
   npassword = '';
   cpassword = '';
-  showRegister = false;
 
   @Input() registrationFlagInput;
 
@@ -122,14 +121,6 @@ export class RegistrationComponent implements OnInit {
     this.registration.reset();
   }
 
-  // showToggle(){
-  //   this.showHideToggle = this.showHideToggle;
-  // }
-
-  showLoginForm(){
-    console.log("Show Login Form");
-    this.showRegister = !this.showRegister;
-  }
 
   
 

@@ -17,7 +17,7 @@
                   placeholder="Enter Firstname"
                   formControlName="firstname"
                 />
-                <div class="showError" *ngIf="submitted">
+                <div class="showError" *ngIf="form.firstname.invalid && submitted">
                   <span class="has-error" *ngIf="form.firstname.errors && form.firstname.errors['invalid-error']">Please enter Firstname</span>
                   <span class="has-error" *ngIf="form.firstname.errors?.minlength">Firstname length atleast 3 characters</span>
                 </div>
@@ -38,11 +38,13 @@
                 <input
                   type="text"
                   class="form-control"
+                  [class.invalid-border]="form.emailid.invalid && submitted"
                   placeholder="Enter email"
                   formControlName="emailid"
                 />
-                <div class="showError" *ngIf="submitted">
+                <div class="showError" *ngIf="form.emailid.invalid && submitted">
                   <span class="has-error" *ngIf="form.emailid.errors?.email">Enter valid email Address</span>
+                  <span class="has-error" *ngIf="form.emailid.errors?.required">Enter email Address</span>
                 </div>
               </div>
               
@@ -52,10 +54,11 @@
                   <input
                     type="password"
                     class="form-control"
+                    [class.invalid-border]="form.newPassword.controls.npassword.invalid && submitted"
                     placeholder="Enter New Password"
                     formControlName="npassword"
                   />
-                  <div class="showError" *ngIf="submitted">
+                  <div class="showError" *ngIf="form.newPassword.controls.npassword.invalid && submitted">
                     <span class="has-error" *ngIf="form.newPassword.controls.npassword.errors?.required">Enter Password atleast 8 - 15 characters</span>
                     <span class="has-error" *ngIf="form.newPassword.controls.npassword.errors?.pattern">Pattern Not Match</span>
                   </div>
@@ -65,6 +68,7 @@
                   <input
                     type="password"
                     class="form-control"
+                    [class.invalid-border]="form.newPassword.controls.cpassword.invalid && submitted"
                     placeholder="Enter Confirm Password"
                     formControlName="cpassword"
                   />

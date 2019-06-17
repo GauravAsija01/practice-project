@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   login: FormGroup;
-  //showLogin = false;
+  submitted = false;
   @Input() loginFlagInput;
 
   @Output() loginFlagOutput = new EventEmitter();
@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     this.loginFlagOutput.emit(true);
   }
 
-
   loginInt(){
     this.login = this.fb.group({
       email: ["", [Validators.required]],
@@ -32,17 +31,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  get form() { return this.login.controls; }
+
   loginSubmit(){
+    this.submitted = true;
     console.log(this.login);
+    console.log(this.login.value);
   }
 
-  // showToggle(){
-  //   this.showHideToggle = !this.showHideToggle;
-  // }
 
-  showRegisterForm(){
-    console.log("Show Register Form");
-    this.showLogin = !this.showLogin;
-  }
 
 }
