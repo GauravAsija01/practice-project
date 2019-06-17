@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'project1';
 
+  loginFlag = false;
+
+  toggleForm(flag){
+    this.loginFlag = flag;
+  }
+
   
 }

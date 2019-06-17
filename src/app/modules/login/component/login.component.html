@@ -1,4 +1,4 @@
-<div id="first" *ngIf="showLogin">
+<div id="first" *ngIf="!loginFlagInput">
           <div class="myform form ">
             <div class="logo mb-3">
               <div class="col-md-12 text-center">
@@ -47,7 +47,7 @@
               <div class="form-group">
                 <p class="text-center">
                   Don't have account? 
-                  <a href="javascript:;" id="signup" (click)="showRegisterForm()">Sign up here</a>
+                  <a href="javascript:;" id="signup" (click)="togglecomp()">Sign up here</a>
                   <!-- <button (click)="showToggle()">Sign up here</button> -->
                 </p>
               </div>

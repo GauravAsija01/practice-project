@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { MustMatch } from './ps-match.validator';
 import { RegistrationService } from '../service/registration.service';
@@ -29,6 +29,10 @@ export class RegistrationComponent implements OnInit {
   cpassword = '';
   showRegister = false;
 
+  @Input() registrationFlagInput;
+
+  @Output() registerFlagOutput = new EventEmitter();
+
   constructor(private fb:FormBuilder, private registrationservice : RegistrationService ) { }
 
   ngOnInit() {
@@ -37,6 +41,10 @@ export class RegistrationComponent implements OnInit {
     // this.registration.valueChanges.subscribe(data => {
     //   console.log(data);
     // });
+  }
+
+  togglecomp(){
+    this.registerFlagOutput.emit(false);
   }
 
   fbGroupForm(){

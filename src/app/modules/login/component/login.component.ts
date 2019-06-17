@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,12 +9,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   login: FormGroup;
-  showLogin = true;
+  //showLogin = false;
+  @Input() loginFlagInput;
+
+  @Output() loginFlagOutput = new EventEmitter();
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.loginInt();
+  }
+
+  togglecomp(){
+    this.loginFlagOutput.emit(true);
   }
 
 

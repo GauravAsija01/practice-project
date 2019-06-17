@@ -15,8 +15,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 mx-auto">
-      <app-registration></app-registration>
-      <app-login></app-login>
+      <app-registration [registrationFlagInput]="loginFlag" (registerFlagOutput)="toggleForm($event)"></app-registration>
+      <app-login [loginFlagInput]="loginFlag" (loginFlagOutput)="toggleForm($event)"></app-login>
     </div>
   </div>
 </div>

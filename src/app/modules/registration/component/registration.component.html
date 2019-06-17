@@ -1,4 +1,4 @@
-       <div id="second" *ngIf="showRegister">
+       <div id="second" *ngIf="registrationFlagInput">
           <div class="myform form ">
             <div class="logo mb-3">
               <div class="col-md-12 text-center">
@@ -12,6 +12,7 @@
                   type="text"
                   name="firstname"
                   class="form-control"
+                  [class.invalid-border]="form.firstname.invalid && submitted"
                   id="firstname"
                   placeholder="Enter Firstname"
                   formControlName="firstname"
@@ -89,7 +90,7 @@
               <div class="col-md-12 ">
                 <div class="form-group">
                   <p class="text-center">
-                    <a href="javascript:;" id="signin" (click)="showLoginForm()">Already have an account?</a>
+                    <a href="javascript:;" id="signin" (click)="togglecomp()">Already have an account?</a>
                   </p>
                 </div>
               </div>
